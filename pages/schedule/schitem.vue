@@ -1,5 +1,5 @@
 <template>
-	<view id="main">
+	<view>
 		<view v-for="(item, index) in (list.length!=0 ?list:List)" :key="index">
 			<item :one="item"></item>
 		</view>
@@ -26,7 +26,3 @@
 		}
 	};
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -8,7 +8,7 @@ export default new Vuex.Store({
     isLogin:false,
 	UserInfo:{},
 	Token:"",
-	classList:[],
+	classList:[[],[],[],[],[],[],[]],
 	currentWeek:1,
   },
   mutations: {
@@ -42,11 +42,65 @@ export default new Vuex.Store({
 	},
 	// 更新课表信息
 	updateClass(state,res){
-		state.classList = res.data.data[0].item;
+		try{
+			let result = DealClassList(res.data.data[0].item);
+			result.shift();
+			state.classList = result;
+			uni.setStorage({
+				key:"classList",
+				data:result,
+			})
+		}
+		catch(e){
+			state.classList = res;
+		}
+		
 	},
 	// 更新周
-	upateCurrentWeek(state,week){
-		state.currentWeek = week;
+	upateCurrentWeek(state,res){
+		try{
+			let week = res.data.data[0].week;
+			state.currentWeek = week;
+			uni.setStorage({
+				key:"currentweek",
+				data:week,
+			})
+		}
+		catch(e){
+			state.currentWeek = res;
+		}
+		
 	}
   }
 })
+
+function DealClassList(classList) {
+	let result = [
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[],
+		[]
+	];
+	for (let one of classList) {
+		if (one.classTime[0] == 1) {
+			result[1].push(one);
+		} else if (one.classTime[0] == 2) {
+			result[2].push(one);
+		} else if (one.classTime[0] == 3) {
+			result[3].push(one);
+		} else if (one.classTime[0] == 4) {
+			result[4].push(one);
+		} else if (one.classTime[0] == 5) {
+			result[5].push(one);
+		} else if (one.classTime[0] == 6) {
+			result[6].push(one);
+		} else if (one.classTime[0] == 7) {
+			result[7].push(one);
+		}
+	}
+	return result;
+}

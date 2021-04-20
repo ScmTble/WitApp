@@ -4,15 +4,16 @@
 		},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/index/index",
+			"path": "pages/schedule/schedule",
 			"style": {
-				"navigationBarTitleText": "主页"
+				"navigationBarTitleText": "课表",
+				"enablePullDownRefresh":true
 			}
 		},
 		{
-			"path": "pages/schedule/schedule",
+			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "课表"
+				"navigationBarTitleText": "主页"
 			}
 		},
 		{
@@ -22,42 +23,23 @@
 			}
 		},
 		{
-			"path": "pages/schedule/schedule",
-			"style": {
-				"navigationBarTitleText": "课表"
-			}
-		},
-		{
 			"path": "pages/login/index",
 			"style": {
 				"navigationBarTitleText": "登录"
 			}
-		},
-		{
-			"path": "pages/schedule/currentweek",
-			"style": {
-				"navigationBarTitleText": "本周"
-			}
-		},
-		{
-			"path": "pages/schedule/nextweek",
-			"style": {
-				"navigationBarTitleText": "下周",
-				"enablePullDownRefresh":true
-			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
+		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "WitApp",
-		"navigationBarBackgroundColor": "#0081ff",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarBackgroundColor": "#161616",
+		"backgroundColor": "#161616"
 	},
 	"tabBar": {
-	    "color": "#dbdbdb",
-	    "selectedColor": "#1296db",
+	    "color": "#3f3f5f",
+	    "selectedColor": "#ffffff",
 	    "borderStyle": "black",
-	    "backgroundColor": "#ffffff",
+	    "backgroundColor": "#161616",
 	    "list": [{
 	        "pagePath": "pages/index/index",
 	        "iconPath": "static/index.png",

@@ -1,32 +1,35 @@
 <template>
 	<view>
-		<u-notice-bar mode="horizontal" :list="msgList"></u-notice-bar>
-		<view class="wrap">
-				<u-swiper :list="img_list" :height="450"></u-swiper>
+		<view>
+			<u-notice-bar bg-color="#161616" mode="horizontal" :list="msgList"></u-notice-bar>
+			<view class="wrap">
+					<u-swiper :list="img_list" :height="450"></u-swiper>
+			</view>
 		</view>
-		
-		<u-cell-group>
-			<u-cell-item icon="setting-fill" :title="isLogin ? '宁已经登录':'宁当前未登录！'" @click="zhuxiao()" value="注销" id="msg"></u-cell-item>
-		</u-cell-group>
-		
-		
-		<view id="userinfo">
-			<u-icon id="icon" name="account" color="#2979ff" size="30"></u-icon> 
-			  姓名 : {{ UserInfo.name }}<br>
-			<u-icon id="icon" name="coupon" color="#2979ff" size="30"></u-icon>
-			  班级 : {{ UserInfo.clsName }}<br>
-			<u-icon id="icon" name="grid" color="#2979ff" size="30"></u-icon>
-			  学院 : {{ UserInfo.academyName }}<br>
+		<view id="info">
+			<view class="item">
+				<u-tag text="姓名" mode="dark" shape="circleLeft"/>
+				<u-tag :text="UserInfo.name" type="success" />
+			</view>
+			<view class="item">
+				<u-tag text="班级" mode="dark" shape="circleLeft"/>
+				<u-tag :text="UserInfo.clsName" type="success" />
+			</view>
+			<view class="item">
+				<u-tag text="学院" mode="dark" shape="circleLeft"/>
+				<u-tag :text="UserInfo.academyName" type="success" />
+			</view>
 		</view>
-		
-		<u-row>
-			<u-col span="6">
-			<u-button @click="turnurl()" type="primary" id="btn" :disabled="isLogin">登录页</u-button>
-			</u-col>
-			<u-col span="6">
-			<u-button type="success" @click="leftviewshow = true" id="btn">Top</u-button>
-			</u-col>
-		</u-row>
+		<view>
+			<u-row>
+				<u-col span="6">
+				<u-button @click="turnurl()" type="primary" id="btn" :disabled="isLogin">登录页</u-button>
+				</u-col>
+				<u-col span="6">
+				<u-button type="success" @click="leftviewshow = true" id="btn">Tips</u-button>
+				</u-col>
+			</u-row>
+		</view>
 		<!-- // 头部弹出框 -->
 		<u-popup v-model="leftviewshow" mode="top" border-radius="40" height="300">
 			<topview :week="currentWeek"></topview>
@@ -96,25 +99,25 @@
 </script>
 
 
-<style scoped lang="scss">
-	#userinfo{
-		padding-left: 80px;
-		padding-top: 10px;
+<style>
+	#info{
+		background-color: #161616;
 	}
-	#icon{
-		padding-top: 20px;
-	}
-	
+
 	#btn{
-		margin-top: 30px;
-		margin-left: 30px;
-		margin-right: 30px;
+		margin: 10px;
 	}
 	.wrap{
 		padding: 40rpx;
+		background-color: #161616;
 	}
-	#msg{
-		margin-top: 15px;
-		padding: 10px;
+	.item{
+		margin: 30px;
+	}
+	.u-tag{
+		margin-right: 10px;
+	}
+	page{
+		background-color: #161616;	
 	}
 </style>

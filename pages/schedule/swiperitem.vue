@@ -1,5 +1,7 @@
 <template>
+	<view>
 		<schitem :list="list"></schitem>
+	</view>
 </template>
 
 <script>
@@ -13,6 +15,3 @@
 		}
 	}
 </script>
-
-<style>
-</style>

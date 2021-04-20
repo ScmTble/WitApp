@@ -1,7 +1,7 @@
 <template>
-	<view>
-		<u-notice-bar mode="horizontal" :list="barList ? barList : list" type="error"></u-notice-bar>
-		</view>
+	<view id="main">
+		<u-notice-bar color="#ababab" bg-color="#161616" mode="horizontal" :list="barList ? barList : list" type="error"></u-notice-bar>
+	</view>
 </template>
 
 <script>
@@ -23,4 +23,7 @@
 </script>
 
 <style>
+	main{
+		background-color: #222222;
+	}
 </style>

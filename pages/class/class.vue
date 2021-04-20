@@ -20,7 +20,7 @@
 		</u-row>
 		<u-row>
 			<u-col span="2">
-				<u-icon name="list" color="#2979ff" size="50"></u-icon>
+				<u-icon name="home" color="#2979ff" size="50"></u-icon>
 			</u-col>
 			<u-col span="9">
 					<u-select v-model="bd_show" mode="single-column" :list="bd_list" @confirm="bd_cb"></u-select>
@@ -320,4 +320,7 @@
 		padding: 24rpx;
 		text-align: center;
 	}
+page{
+	background-color: #161616;
+}
 </style>

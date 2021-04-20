@@ -2,7 +2,7 @@
 	<view class="wrap">
 		<u-row gutter="16">
 			<u-col span="12" text-align="center">
-				<u-avatar src="https://scmtble.xyz/assets/img/favicon.jpg" mode="circle"></u-avatar>
+				<u-avatar src="../../static/favicon.jpg" mode="circle"></u-avatar>
 			</u-col>
 			<u-col span="12">
 				<view>
@@ -53,8 +53,25 @@
 						// 1表明登录成功
 						if(res.data.code==1){
 							// 将token存入并将缓存中的状态改为
-							this.$store.commit('login',res['data']['data']);
-
+							let data = res['data']['data'];
+							let token = data['token'];
+							this.$store.commit('login',data);
+							uni.request({
+								method: "POST",
+								url: "http://jwapp.wit.edu.cn/whgcdxhd/student/curriculum",
+								header: {
+									"content-type": "application/x-www-form-urlencoded",
+									token:token,
+								},
+								data: {
+									week: 1
+								},
+								success: (resp) => {
+									if (res.statusCode == 200) {						
+										this.$store.commit("upateCurrentWeek",resp);
+									}
+								}
+							});
 							this.showToast(res['data']['Msg'],"success");
 							// 登录成功返回主页
 							uni.navigateBack();

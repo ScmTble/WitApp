@@ -18,10 +18,13 @@
 
 <style>
 	.one{
-		background-color: #55aaff;
+		background-color: #282c35;
 		margin: 20px;
 		padding: 10px;
 		border-radius: 10px;
 		list-style-type: none;
+	}
+	li{
+		color: #FFFFFF;
 	}
 </style>
